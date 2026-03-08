@@ -1,0 +1,85 @@
+Algorithm Checkpoint
+
+Var
+A[100], B[100] : array of integer
+v1[100], v2[100] : array of integer
+n, m, i, j, sum, ps : integer
+found : boolean
+
+Begin
+
+/*************** Problem 1 ***************/
+
+Write("Enter size of set A")
+Read n
+
+For i ← 0 to n-1 do
+    Read A[i]
+EndFor
+
+Write("Enter size of set B")
+Read m
+
+For i ← 0 to m-1 do
+    Read B[i]
+EndFor
+
+sum ← 0
+
+For i ← 0 to n-1 do
+    found ← false
+
+    For j ← 0 to m-1 do
+        If A[i] = B[j] then
+            found ← true
+        EndIf
+    EndFor
+
+    If found = false then
+        sum ← sum + A[i]
+    EndIf
+EndFor
+
+For i ← 0 to m-1 do
+    found ← false
+
+    For j ← 0 to n-1 do
+        If B[i] = A[j] then
+            found ← true
+        EndIf
+    EndFor
+
+    If found = false then
+        sum ← sum + B[i]
+    EndIf
+EndFor
+
+Write("Sum of distinct elements = ", sum)
+
+
+/*************** Problem 2 ***************/
+
+Write("Enter size of vectors")
+Read n
+
+For i ← 0 to n-1 do
+    Read v1[i]
+EndFor
+
+For i ← 0 to n-1 do
+    Read v2[i]
+EndFor
+
+ps ← 0
+
+For i ← 0 to n-1 do
+    ps ← ps + v1[i] * v2[i]
+EndFor
+
+If ps = 0 then
+    Write("Vectors are Orthogonal")
+Else
+    Write("Vectors are Not Orthogonal")
+EndIf
+
+End
